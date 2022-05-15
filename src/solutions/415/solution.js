@@ -1,4 +1,4 @@
-// NOTE: 문제 링크 =
+// NOTE: 문제 링크 = https://leetcode.com/problems/add-strings/submissions/
 
 function numToInteger(num) {
   const parsedNum = parseInt(num);
