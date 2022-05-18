@@ -1,25 +1,24 @@
 // NOTE: 문제 링크 = https://leetcode.com/problems/longest-continuous-increasing-subsequence/submissions/
 
 function solution(nums) {
+  const length = nums.length;
+  if (length === 1) {
+    return 1;
+  }
   let max = 0;
-  let res = 0;
-  let prev = null;
-  for (const num of nums) {
-    if (prev === null) {
-      prev = num;
-      res += 1;
-      continue;
-    }
-    if (prev < num) {
-      prev = num;
-      res += 1;
+  let count = 1;
+  for (let i = 1; i < length; i += 1) {
+    if (nums[i - 1] < nums[i]) {
+      count += 1;
     } else {
-      max = Math.max(max, res);
-      res = 1;
-      prev = num;
+      max = Math.max(max, count);
+      count = 1;
+    }
+    if (i + 1 === length) {
+      max = Math.max(max, count);
     }
   }
-  return Math.max(max, res);
+  return max;
 }
 
 // 테스트 케이스
