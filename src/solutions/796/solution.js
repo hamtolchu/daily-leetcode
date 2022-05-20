@@ -1,15 +1,12 @@
 // NOTE: 문제 링크 = https://leetcode.com/problems/rotate-string/
 
 function solution(s, goal) {
-  if (s === goal) {
-    return true;
-  }
-  // Loop
   const length = s.length;
 
-  for (let i = 0; i < length - 1; i += 1) {
-    console.log(`DEBUG : ${s.slice(0, i + 1)} :: ${s.slice(i + 1, length)}`);
-    if (`${s.slice(0, i + 1)}${s.slice(i + 1, length)}` === goal) {
+  for (let i = 0; i < length; i += 1) {
+    const lStr = s.slice(0, i);
+    const rStr = s.slice(i, length);
+    if (`${rStr}${lStr}` === goal) {
       return true;
     }
   }
