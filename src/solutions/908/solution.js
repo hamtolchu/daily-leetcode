@@ -1,10 +1,9 @@
 // NOTE: 문제 링크 = https://leetcode.com/problems/smallest-range-i/
 
 function solution(nums, k) {
-  let max = Math.max(...nums);
-  let min = Math.min(...nums);
-  max = max - k;
-  min = min + k;
+  nums = nums.sort((a, b) => a - b);
+  const min = nums[0] + k;
+  const max = nums[nums.length - 1] - k;
   const diff = max - min;
   return diff < 0 ? 0 : diff;
 }
